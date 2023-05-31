@@ -1,0 +1,32 @@
+	- Directory
+	- Present working Directoy : cd
+	- Navigating directory :
+		○ Cd path
+		○ Cd..
+	- Make a directory :
+		○ Mkdir <folder name>
+		○ For multiple directories : mkdir <f1> <f2> <f3>
+	- Ls command : list everything in the folder : use dir in windows
+
+		○ Will show everything in the directory :
+		○ Dir
+		○ Will show 2 extra things : . And .. : current and parent folder
+		○ To view recursively : dir /S
+
+	- Create a file using cmd :
+		○ Print something in cmd using echo
+		○ >> is used to write something to a file
+		○ echo "Mainak">>t11.txt
+	- Creating the bat files
+		○ Write commands in there
+		○ Pause
+		○ Run the bat file in the command prompt
+		○ Just like methods
+		
+	- Copy command : https://www.computerhope.com/copyhlp.htm
+		○ Copy <file name> <directory name>
+	- Move command :
+		○ Move <source paths> <destination path>
+	- Delete command :
+		○ Del <file name>
+		○ Rmdir <directory name>
