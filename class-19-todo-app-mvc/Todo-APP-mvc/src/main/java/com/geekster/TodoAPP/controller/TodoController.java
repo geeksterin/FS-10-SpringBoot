@@ -3,12 +3,13 @@ package com.geekster.TodoAPP.controller;
 import com.geekster.TodoAPP.entity.Todo;
 import com.geekster.TodoAPP.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@Controller
 public class TodoController {
 
     @Autowired
@@ -25,10 +26,17 @@ public class TodoController {
         return todoService.getAllTodos();
     }
 
+    @ResponseBody
     @GetMapping("todo/done")
     public List<Todo> getDoneTodos()
     {
         return todoService.getAllDoneTodos();
+    }
+
+    @GetMapping("todos/{todoId}")
+    public Todo getTodoById(@PathVariable Integer todoId)
+    {
+        return todoService.getTodoById(todoId);
     }
 
     @GetMapping("todo/undone")

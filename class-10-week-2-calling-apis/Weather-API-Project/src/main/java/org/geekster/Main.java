@@ -54,6 +54,7 @@ public class Main {
                 throw new RuntimeException(e);
             }
 
+            System.out.println(apiData.toString());
             JSONObject jsonAPIResponse = new JSONObject(apiData.toString());
 
             /*System.out.println(jsonAPIResponse.get("latitude"));

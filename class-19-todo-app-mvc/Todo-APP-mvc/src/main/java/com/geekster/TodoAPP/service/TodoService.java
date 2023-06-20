@@ -82,4 +82,15 @@ public class TodoService {
         }
         return "todo :" + todoId + " not deleted as it doesn't exist" ;
     }
+
+    public Todo getTodoById(Integer todoId) {
+        for(Todo todo : todoRepo.getMyTodos())
+        {
+            if(todo.getTodoId().equals(todoId))
+            {
+                return todo;
+            }
+        }
+        throw new IllegalStateException("id not found");
+    }
 }
