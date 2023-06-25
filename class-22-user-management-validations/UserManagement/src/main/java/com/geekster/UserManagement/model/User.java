@@ -12,20 +12,27 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class User {
 
-
+    @NotNull
     private Integer userId;
+
     @NotBlank(message = "name cannot be blank")
     private String userName;
-    //@Email
-    //@Pattern(regexp = "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.geekster\\.com", message = "email should end with geekster.com")
-    private String userEmail;
+
+    @Email(message = "Given email id is invalid")
+     private String userEmail;
+
+    @Pattern(regexp = "^(?=.*[!@#$%^&*()\\[\\]{};':\"\\\\|,.<>/?])(?=.*\\d)(?=.*[A-Z]).{6,}$")
     private String password;
-    @Pattern(regexp = "\\d{10}")
+
+    @Size(min = 7,max = 10)
+    @Pattern(regexp = "^[0-9]+$")
     private String userContact;
 
     @Min(value = 18)
     @Max(value = 30)
     private Integer userAge;
+
+    @NotNull
     private LocalDate userDOB;//EX : 2007-12-03.
     private Type userType;
 

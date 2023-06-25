@@ -3,15 +3,18 @@ package com.geekster.UserManagement.controller;
 import com.geekster.UserManagement.model.User;
 import com.geekster.UserManagement.service.UserService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
+
+
 @RestController
+@Validated
 public class UserController {
 
     @Autowired
@@ -28,7 +31,7 @@ public class UserController {
     //create
 
     @PostMapping("users")
-    String addUsers(@Valid @RequestBody List<User> users)
+    String addUsers(@RequestBody @Valid List<User> users)
     {
         return userService.createUsers(users);
     }
@@ -38,4 +41,19 @@ public class UserController {
     {
         return userService.createUser(user);
     }
+
+    //delete :
+    @DeleteMapping("user")
+    String removeUser(@RequestParam @Max(10000) Integer id)
+    {
+       return userService.removeUser(id);
+    }
+
+    @RequestMapping(value = "user/{id}/email/{emailId}",method = PUT)
+    String updateEmail(@PathVariable Integer id, @PathVariable @Email String emailId)
+    {
+        return userService.updateEmail(id,emailId);
+    }
+
+
 }
