@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "adfb0698-7ad8-42fe-8cc3-55f1efbb6e4e",
+		"name": "User-management-validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17287604",
+		"_collection_link": "https://www.postman.com/navigation-saganist-14715836/workspace/test/collection/17287604-adfb0698-7ad8-42fe-8cc3-55f1efbb6e4e?action=share&creator=17287604&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"userId\": 1,\r\n        \"userName\": \"a\",\r\n        \"userEmail\": \"c@c\",\r\n        \"password\": \"abcd$\",\r\n        \"userContact\": \"9899010793\",\r\n        \"userAge\": 30,\r\n        \"userDOB\": \"1997-12-22\",\r\n        \"userType\": \"INTERNAL\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"userId\": 1,\r\n        \"userName\": \"a\",\r\n        \"userEmail\": \"c@c\",\r\n        \"password\": \"abcd$\",\r\n        \"userContact\": \"9899010793\",\r\n        \"userAge\": 30,\r\n        \"userDOB\": \"1997-12-22\",\r\n        \"userType\": \"INTERNAL\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy 4",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"userId\": 1,\r\n        \"userName\": \"a\",\r\n        \"userEmail\": \"c@c\",\r\n        \"password\": \"abcd$\",\r\n        \"userContact\": \"9899010793\",\r\n        \"userAge\": 30,\r\n        \"userDOB\": \"1997-12-22\",\r\n        \"userType\": \"INTERNAL\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
