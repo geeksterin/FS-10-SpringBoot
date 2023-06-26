@@ -1,0 +1,78 @@
+create database music;
+use musics;
+
+## creating a table :
+
+
+create table song
+(
+	Song_Name varchar(255)
+);
+
+drop table song;
+
+create table label
+(
+	label_id INT,
+    label_name varchar(255)
+);
+
+alter table label
+add label_owner varchar(255);
+
+## read :
+
+select *
+from label;
+
+## create
+
+insert into label (label_id,label_name,label_owner)
+values (1,'Tseries','Bhushan'),
+		(2,'JioMusic','Ambani'),
+        (3,'ZeeMusic','Hrishi');
+        
+        
+select label_name
+from label
+where label_owner = 'Bhushan' ;  
+
+
+update label
+set label_owner = 'Mainak'
+where label_name = 'ZeeMusic';
+
+delete 
+from label
+where label_name = 'ZeeMusic';
+
+drop table label;
+
+create table owner
+(
+	owner_id INT,
+    owner_name varchar(255),
+    owner_worth INT
+);
+
+SELECT *
+FROM owner;
+
+insert into owner (owner_id, owner_name, owner_worth)
+values (1,'Bhushan', 50),
+		(2,'Ambani', 10),
+        (3,'Hrishi',100);
+        
+select owner_worth
+from label
+join owner
+on label_owner = owner_name
+where label_name = 'Tseries'
+
+
+
+
+        
+        
+
+
