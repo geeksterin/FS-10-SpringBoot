@@ -29,8 +29,8 @@ public class RoomService {
          return "rooms added"+rooms;
     }
 
-    public Optional<HotelRoom> getRoomById(Integer id) {
-        return roomRepo.findById(id);
+    public HotelRoom getRoomById(Integer id) {
+        return roomRepo.getAllRoomById(id);
     }
 
     public boolean checkRoomExists(Integer id) {

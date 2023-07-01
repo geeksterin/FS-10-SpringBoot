@@ -30,7 +30,7 @@ public class RoomController {
     //----------------------------------------------------------------------------------------
     // get particular room by id
     @GetMapping("room/{id}")
-    public Optional<HotelRoom> getRoomById(@PathVariable Integer id){
+    public HotelRoom getRoomById(@PathVariable Integer id){
         return roomService.getRoomById(id);
     }
 
