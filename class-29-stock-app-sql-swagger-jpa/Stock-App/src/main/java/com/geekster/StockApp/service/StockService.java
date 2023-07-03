@@ -34,7 +34,7 @@ public class StockService {
         return stockRepo.findByStockTypeOrderByStockPriceDesc(type);
     }
 
-    public List<Stock> getStocksBirthTimeDesc() {
+    public List<Stock> getStocksBirthTime() {
         return stockRepo.findByOrderByStockBirthTimeStamp();
     }
 

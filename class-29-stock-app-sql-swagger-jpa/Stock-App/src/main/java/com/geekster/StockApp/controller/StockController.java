@@ -43,7 +43,7 @@ public class StockController {
     @GetMapping("stock/timestamp")
     public List<Stock> getStocksBirthTimeDesc()
     {
-        return stockService.getStocksBirthTimeDesc();
+        return stockService.getStocksBirthTime();
     }
 
     @PutMapping("stock/type/{type}/increment/{hike}")
