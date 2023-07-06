@@ -1,7 +1,7 @@
-package com.geekster.Mappings.controller;
+package com.geekster.Mappings.controller.oneToOne;
 
 import com.geekster.Mappings.model.oneToOne.Address;
-import com.geekster.Mappings.service.AddressService;
+import com.geekster.Mappings.service.oneToOne.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

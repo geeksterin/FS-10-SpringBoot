@@ -1,7 +1,7 @@
-package com.geekster.Mappings.service;
+package com.geekster.Mappings.service.oneToOne;
 
 import com.geekster.Mappings.model.oneToOne.Employee;
-import com.geekster.Mappings.repo.IEmpRepo;
+import com.geekster.Mappings.repo.oneToOne.IEmpRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
