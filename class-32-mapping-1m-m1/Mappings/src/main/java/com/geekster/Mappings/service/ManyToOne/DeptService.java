@@ -1,10 +1,9 @@
-package com.geekster.Mappings.service.oneToMany;
+package com.geekster.Mappings.service.ManyToOne;
 
-import com.geekster.Mappings.model.oneToMany.Dept;
-import com.geekster.Mappings.repo.oneToMany.IDeptRepo;
+import com.geekster.Mappings.model.ManyToOne.Dept;
+import com.geekster.Mappings.repo.ManyToOne.IDeptRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class DeptService {

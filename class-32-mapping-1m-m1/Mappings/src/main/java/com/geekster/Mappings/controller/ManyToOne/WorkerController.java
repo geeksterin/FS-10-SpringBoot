@@ -1,8 +1,7 @@
-package com.geekster.Mappings.controller.oneToMany;
+package com.geekster.Mappings.controller.ManyToOne;
 
-import com.geekster.Mappings.model.oneToMany.Worker;
-import com.geekster.Mappings.repo.oneToMany.IWorkerRepo;
-import com.geekster.Mappings.service.oneToMany.WorkerService;
+import com.geekster.Mappings.model.ManyToOne.Worker;
+import com.geekster.Mappings.service.ManyToOne.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
