@@ -18,11 +18,6 @@ public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
 
-    @PostMapping("appointment")
-    void scheduleAppointment(@RequestBody Appointment appointment)
-    {
-        appointmentService.scheduleAppointment(appointment);
-    }
 
     @GetMapping("appointments")
     List<Appointment> getAllAppointments()
