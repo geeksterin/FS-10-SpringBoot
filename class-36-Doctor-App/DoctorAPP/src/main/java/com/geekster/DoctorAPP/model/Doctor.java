@@ -1,6 +1,8 @@
 package com.geekster.DoctorAPP.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.geekster.DoctorAPP.model.enums.Qualification;
 import com.geekster.DoctorAPP.model.enums.Specialization;
 import jakarta.persistence.*;
@@ -17,6 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,scope=Doctor.class,property="doctorId")
 public class Doctor {
 
     @Id
