@@ -2,6 +2,7 @@ package com.geekster.DoctorAPP.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class Appointment {
     private Long appointmentId;
     private String appointmentDesc;
     private LocalDateTime appointmentScheduleTime;
+    @JsonProperty(access= JsonProperty.Access.READ_ONLY)
     private LocalDateTime appointmentCreationTime;
 
     @OneToOne
