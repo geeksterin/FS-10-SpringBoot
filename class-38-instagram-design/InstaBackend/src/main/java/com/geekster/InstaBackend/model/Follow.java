@@ -17,11 +17,11 @@ public class Follow {
     private Integer followId;
 
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "fk_actual_user")
     User currentUser;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "fk_follower_of_actual_user")
     User currentUserFollower;
 

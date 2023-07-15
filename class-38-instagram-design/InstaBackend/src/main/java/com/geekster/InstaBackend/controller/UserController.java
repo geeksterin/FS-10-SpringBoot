@@ -1,9 +1,7 @@
 package com.geekster.InstaBackend.controller;
 
 
-import com.geekster.InstaBackend.model.Comment;
-import com.geekster.InstaBackend.model.Post;
-import com.geekster.InstaBackend.model.User;
+import com.geekster.InstaBackend.model.*;
 import com.geekster.InstaBackend.model.dto.SignInInput;
 import com.geekster.InstaBackend.model.dto.SignUpOutput;
 import com.geekster.InstaBackend.service.AuthenticationService;
@@ -98,6 +96,68 @@ public class UserController {
             return "Not an Authenticated user activity!!!";
         }
     }
+
+    //like functionality in instagram
+    @PostMapping("like")
+    public String addLike(@RequestBody Like like, @RequestParam String likeEmail, @RequestParam String likerToken)
+    {
+        if(authenticationService.authenticate(likeEmail,likerToken)) {
+            return userService.addLike(like,likeEmail);
+        }
+        else {
+            return "Not an Authenticated user activity!!!";
+        }
+    }
+
+    @GetMapping("like/count/post/{postId}")
+    public String getLikeCountByPost(@PathVariable Integer postId, @RequestParam String userEmail, @RequestParam String userToken)
+    {
+        if(authenticationService.authenticate(userEmail,userToken)) {
+            return userService.getLikeCountByPost(postId,userEmail);
+        }
+        else {
+            return "Not an Authenticated user activity!!!";
+        }
+    }
+
+    @DeleteMapping("like")
+    public String removeInstaLike(@RequestParam Integer likeId, @RequestParam String likerEmail, @RequestParam String likerToken)
+    {
+        if(authenticationService.authenticate(likerEmail,likerToken)) {
+            return userService.removeInstaLike(likeId,likerEmail);
+        }
+        else {
+            return "Not an Authenticated user activity!!!";
+        }
+    }
+
+
+    //follow functionality in instagram
+
+    @PostMapping("follow")
+    public String followUser(@RequestBody Follow follow, @RequestParam String followerEmail, @RequestParam String followerToken)
+    {
+        if(authenticationService.authenticate(followerEmail,followerToken)) {
+            return userService.followUser(follow,followerEmail);
+        }
+        else {
+            return "Not an Authenticated user activity!!!";
+        }
+    }
+
+    @DeleteMapping("unfollow/target/{followId}")
+    public String unFollowUser(@PathVariable Integer followId, @RequestParam String followerEmail, @RequestParam String followerToken)
+    {
+        if(authenticationService.authenticate(followerEmail,followerToken)) {
+            return userService.unFollowUser(followId,followerEmail);
+        }
+        else {
+            return "Not an Authenticated user activity!!!";
+        }
+    }
+
+
+
 
 
 

@@ -41,4 +41,11 @@ public class PostService {
     public boolean validatePost(Post instaPost) {
         return (instaPost!=null && postRepo.existsById(instaPost.getPostId()));
     }
+
+
+    public Post getPostById(Integer id) {
+        return postRepo.findById(id).orElse(null);
+    }
+
+
 }
