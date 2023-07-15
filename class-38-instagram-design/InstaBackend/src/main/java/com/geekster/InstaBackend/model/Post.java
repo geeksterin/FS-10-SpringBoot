@@ -26,6 +26,7 @@ public class Post {
     private LocalDateTime postCreatedTimeStamp;
 
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @JoinColumn(name = "fk_post_user_id")
     private User postOwner;
 }

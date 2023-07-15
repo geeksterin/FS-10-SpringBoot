@@ -2,6 +2,8 @@ package com.geekster.InstaBackend.service;
 
 
 import com.geekster.InstaBackend.model.AuthenticationToken;
+import com.geekster.InstaBackend.model.Comment;
+import com.geekster.InstaBackend.model.Post;
 import com.geekster.InstaBackend.model.User;
 import com.geekster.InstaBackend.model.dto.SignInInput;
 import com.geekster.InstaBackend.model.dto.SignUpOutput;
@@ -19,6 +21,12 @@ public class UserService {
 
     @Autowired
     AuthenticationService authenticationService;
+
+    @Autowired
+    PostService postService;
+
+    @Autowired
+    CommentService commentService;
 
     public SignUpOutput signUpUser(User user) {
 
@@ -100,7 +108,7 @@ public class UserService {
                 AuthenticationToken authToken  = new AuthenticationToken(existingUser);
                 authenticationService.saveAuthToken(authToken);
 
-                EmailHandler.sendEmail(signInEmail,"email testing",authToken.getTokenValue());
+                EmailHandler.sendEmail("mainakgh1@gmail.com","email testing",authToken.getTokenValue());
                 return "Token sent to your email";
             }
             else {
@@ -125,8 +133,59 @@ public class UserService {
         return "User Signed out successfully";
     }
 
-    
 
+    public String createInstaPost(Post post, String email) {
 
+        User postOwner = userRepo.findFirstByUserEmail(email);
+        post.setPostOwner(postOwner);
+        return postService.createInstaPost(post);
+    }
 
+    public String removeInstaPost(Integer postId,String email) {
+
+        User user = userRepo.findFirstByUserEmail(email);
+        return postService.removeInstaPost(postId,user);
+    }
+
+    public String addComment(Comment comment,String commenterEmail) {
+        User commenter = userRepo.findFirstByUserEmail(commenterEmail);
+        comment.setCommenter(commenter);
+
+        boolean postValid = postService.validatePost(comment.getInstaPost());
+        if(postValid) {
+            return commentService.addComment(comment);
+        }
+        else {
+            return "Cannot comment on Invalid Post!!";
+        }
+    }
+
+    boolean authorizeCommentRemover(String email,Comment comment)
+    {
+        String  commentOwnerEmail = comment.getCommenter().getUserEmail();
+        String  postOwnerEmail  = comment.getInstaPost().getPostOwner().getUserEmail();
+
+        return postOwnerEmail.equals(email) || commentOwnerEmail.equals(email);
+    }
+
+    public String removeInstaComment(Integer commentId, String email) {
+        Comment comment  = commentService.findComment(commentId);
+        if(comment!=null)
+        {
+            if(authorizeCommentRemover(email,comment))
+            {
+                commentService.removeComment(comment);
+                return "comment deleted successfully";
+            }
+            else
+            {
+                return "Unauthorized delete detected...Not allowed!!!!";
+            }
+
+        }
+        else
+        {
+            return "Invalid Comment";
+        }
+    }
 }
