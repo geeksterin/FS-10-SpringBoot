@@ -1,0 +1,9 @@
+sudo apt update
+git --version
+sudo apt install maven
+mkdir fs-10-todo-app-deploy
+git clone repo.git-link
+ls
+Nano <file_name>
+Ctrl +o + enter to save
+ctrl+x to exit the edit mode
