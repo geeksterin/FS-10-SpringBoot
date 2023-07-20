@@ -1,0 +1,42 @@
+sudo apt update
+sudo apt install mysql-server
+Press y and enter
+mysql --version
+sudo mysql -u root -p (will ask for password : don’t give any and just press enter)
+
+User : create User 'mg-stock-1' @'localhost' IDENTIFIED BY '1234'
+
+GRANT ALL PRIVILEGES ON *.* TO 'mg-stock-1' @'localhost' WITH GRANT OPTION;
+
+--
+User : create User 'mg-stock-1' @'%' IDENTIFIED BY '1234'
+
+GRANT ALL PRIVILEGES ON *.* TO 'mg-stock-1' @'%' WITH GRANT OPTION;
+
+
+FLUSH PRIVILEGES;
+
+//
+Flushing privileges in MySQL is necessary when you make changes to user privileges using the GRANT, REVOKE, CREATE USER, or DROP USER statements. The FLUSH PRIVILEGES command reloads the privileges from the grant tables in the MySQL database, making the changes take effect immediately.
+
+create database stockDatabase;
+
+
+exit;
+
+
+To reopen mysql console with your user :
+
+sudo mysql -u mg-stock-1 -p
+Note : password wont be visible when u are typing it
+
+
+
+
+
+
+
+cd /etc/mysql/mysql.conf.d
+Ls
+sudo nano mysqld.cnf
+sudo service mysql restart
