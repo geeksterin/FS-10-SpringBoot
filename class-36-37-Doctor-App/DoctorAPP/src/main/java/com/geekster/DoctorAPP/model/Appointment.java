@@ -23,6 +23,7 @@ public class Appointment {
     private Long appointmentId;
     private String appointmentDesc;
     private LocalDateTime appointmentScheduleTime;
+
     @JsonProperty(access= JsonProperty.Access.READ_ONLY)
     private LocalDateTime appointmentCreationTime;
 

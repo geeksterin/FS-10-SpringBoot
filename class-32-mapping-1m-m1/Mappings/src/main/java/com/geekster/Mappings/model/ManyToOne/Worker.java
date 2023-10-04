@@ -17,7 +17,7 @@ public class Worker {
     private String workerName;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne//(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_dept_id")
     Dept dept;
 

@@ -23,21 +23,21 @@ public class Student {
     private Gender gender;
 
     //mappings
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "fk_subject_id")
     private Subject subject;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "fk_address_id")
     private Address address;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany()
     @JoinTable(name = "fk_student_course_table",joinColumns = @JoinColumn(name = "fk_student_id"),
             inverseJoinColumns = @JoinColumn(name = "fk_course_id"))
     private List<Course> courses;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany()
     @JoinColumn(name = "fk_student_id")
     private List<Teacher> teachers;
 
